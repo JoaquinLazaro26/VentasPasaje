@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
 public class Menu {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="cod_menucito")
+	@Column(name="cod_men")
 	private Integer codigo;
 
 	@Column (name="nom_men")
@@ -26,15 +26,14 @@ public class Menu {
 	@Column(name="url_men")
 	private String url;
 
-	@OneToMany(mappedBy="menu")
-	@JsonIgnore
-	private List<Acceso> listaAccesoMenu;
+	@OneToMany(mappedBy = "menu")
+	private List<CargoMenu> listaCargoMenu;
 
-	public Integer getCodigomen() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigomen(Integer codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 
@@ -54,21 +53,14 @@ public class Menu {
 		this.url = url;
 	}
 
-	public Integer getCodigo() {
-		return codigo;
+	public List<CargoMenu> getListaCargoMenu() {
+		return listaCargoMenu;
 	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setListaCargoMenu(List<CargoMenu> listaCargoMenu) {
+		this.listaCargoMenu = listaCargoMenu;
 	}
 
-	public List<Acceso> getListaAccesoMenu() {
-		return listaAccesoMenu;
-	}
-
-	public void setListaAccesoMenu(List<Acceso> listaAccesoMenu) {
-		this.listaAccesoMenu = listaAccesoMenu;
-	}
 
 	
 }

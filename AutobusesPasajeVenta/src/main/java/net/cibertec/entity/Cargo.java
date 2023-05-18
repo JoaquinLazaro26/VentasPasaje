@@ -23,10 +23,13 @@ public class Cargo {
 	@Column(name="nom_car")
 	private String nombrecar;
 	
-	
-	@OneToMany(mappedBy="cargo")
 	@JsonIgnore
+	@OneToMany(mappedBy="cargo")
 	private List<Usuario> listaCargos;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "cargo")
+	private List<CargoMenu> listaCargoMenu;
 	
 	
 	public Integer getCodigo() {
@@ -56,6 +59,16 @@ public class Cargo {
 	
 	public void setListaCargos(List<Usuario> listaCargos) {
 		this.listaCargos = listaCargos;
+	}
+
+
+	public List<CargoMenu> getListaCargoMenu() {
+		return listaCargoMenu;
+	}
+
+
+	public void setListaCargoMenu(List<CargoMenu> listaCargoMenu) {
+		this.listaCargoMenu = listaCargoMenu;
 	}
 	
 

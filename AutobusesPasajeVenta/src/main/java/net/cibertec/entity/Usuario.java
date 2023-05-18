@@ -58,11 +58,6 @@ public class Usuario {
 	@ManyToOne
 	@JoinColumn(name="cod_car")
 	private Cargo cargo;// ASOCIACIÓN
-	
-
-	@OneToMany(mappedBy="usuario")
-	@JsonIgnore
-	private List<Acceso> listaAccesoUsuario;
 
 
 	public Integer getCodigocli() {
