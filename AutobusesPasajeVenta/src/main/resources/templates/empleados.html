@@ -127,14 +127,14 @@
 					            </tr>
 							  </thead>
 							  <tbody>
-								<tr th:each="row:${medicos}">
-							      <td th:text="${row.codigo}"></td>
-							      <td th:text="${row.nombre}"></td>
-							      <td th:text="${row.apellidos}"></td>
-							      <td th:text="${row.fechaNac}"></td>
-							      <td th:text="${row.sexo}"></td>
-							      <td th:text="${row.estado}"></td>
-							      <td th:text="${row.sueldo}"></td>
+								<tr >
+							      <td></td>
+							      <td></td>
+							      <td></td>
+							      <td></td>
+							      <td></td>
+							      <td></td>
+							      <td></td>
 							      <td><a class="btn btn-info btn-editar" data-toggle="modal" data-target="#modalEmpleado"><i class="far fa-edit"></i></a></td>
 							      <td><a class="btn btn-danger btn-eliminar"><i class="far fa-trash-alt"></i></a></td>
 							    </tr>  
@@ -155,7 +155,7 @@
 										<h4 class="modal-title text-white">Registrar Empleado</h4>
 									</div>
 									<div class="modal-body">
-									<form method="POST" id="idRegistra" action="">	
+									<form method="POST" id="idRegistra" action="/usuario/grabar">	
 										<input type="hidden" value="0" id="idCodigo" name="codigo">
 										<div class="container">
 											<div class="row">
@@ -168,7 +168,7 @@
 												<div class="form-group has-feedback col-md-6">
 														<label for="exampleInputEmail1"><b>Apellidos</b></label><br>		
 														<i class="fas fa-file-signature form-control-feedback2"></i>	
-														<input type="text" class="form-control"  id="idApellidos" placeholder="Ingresar Apellido" name="apellidos">																										
+														<input type="text" class="form-control"  id="idApellido" placeholder="Ingresar Apellido" name="apellido">																										
 												</div>
 												
 												<br>
@@ -180,9 +180,9 @@
 												        
 													    <select class="form-control" id="idCargo" name="cargo">
 													      <option value=" ">[Seleccione Cargo]</option>
-													      <option th:each="data:${}"   
-													      		th:utext="${data.nombre}"
-													      		th:value="${data.codigo}"
+													      <option th:each="data:${cargo}"
+													      		  th:utext="${data.nombre}"
+													      		  th:value="${data.codigo}"
 													      />
 													    </select>
 												 </div>
@@ -220,54 +220,53 @@
 												<div class="form-group has-feedback col-md-4">	
 														<label for="exampleInputEmail1"><b>Sexo</b></label><br>
 												        
-													    <select class="form-control" id="idRutaInicio" name="rutainicioModal">
+													    <select class="form-control" id="idSexo" name="sexo">
 													      <option value=" ">[Seleccione Sexo]</option>
-													      <option th:each="data:${}"   
-													      		th:utext="${data.nombre}"
-													      		th:value="${data.codigo}"
-													      />
+													      <option value="Masculino">Masculino</option>
+													      <option value="Femenino">Femenino</option>
 													    </select>
 													   
-												 	</div>
+												 </div>
 												 	<div class="form-group has-feedback col-md-8"></div>	
 												 	<br>
 												 	<div class="form-group has-feedback col-md-4">	
 														<label for="exampleInputEmail1"><b>Departamento</b></label><br>
 												        
-													    <select class="form-control" id="idRutaInicio" name="rutainicioModal">
+													    <select class="form-control" id="idDepartamento" name="departamento">
 													      <option value=" ">[Seleccione Departamento]</option>
-													      <option th:each="data:${}"   
-													      		th:utext="${data.nombre}"
-													      		th:value="${data.codigo}"
-													      />
+													      
 													    </select>
 													   
 												 	</div>
 												 	<div class="form-group has-feedback col-md-4">	
 														<label for="exampleInputEmail1"><b>Provincia</b></label><br>
 												        
-													    <select class="form-control" id="idRutaInicio" name="rutainicioModal">
-													      <option value=" ">[Seleccione Provincia]</option>
-													      <option th:each="data:${}"   
-													      		th:utext="${data.nombre}"
-													      		th:value="${data.codigo}"
-													      />
+													    <select class="form-control" id="idProvincia" name="provincia">
+													      <option value=" ">[Seleccione Provincia]</option>													     
 													    </select>
 													   
 												 	</div>
 												 	<div class="form-group has-feedback col-md-4">	
 														<label for="exampleInputEmail1"><b>Distrito</b></label><br>
 												        
-													    <select class="form-control" id="idRutaInicio" name="rutainicioModal">
-													      <option value=" ">[Seleccione Distrito]</option>
-													      <option th:each="data:${}"   
-													      		th:utext="${data.nombre}"
-													      		th:value="${data.codigo}"
-													      />
+													    <select class="form-control" id="idDistrito" name="distrito">
+													      <option value=" ">[Seleccione Distrito]</option>												     
 													    </select>
 													   
 												 	</div>
+												<!-- Provicional hasta que encuentre una manera que sea autoqgenerado y se pueda mandar al correo-->
+												 <div class="form-group has-feedback col-md-6">
+														<label for="exampleInputEmail1"><b>Usuario</b></label><br>		
+														<i class="fas fa-file-signature form-control-feedback2"></i>	
+														<input type="text" class="form-control"  id="idUsuario" placeholder="Ingresar Usuario" name="usuario">																										
+												</div>
 												
+												<div class="form-group has-feedback col-md-6">
+														<label for="exampleInputEmail1"><b>Contraseña</b></label><br>		
+														<i class="fas fa-file-signature form-control-feedback2"></i>	
+														<input type="password" class="form-control"  id="idContraseña" placeholder="Ingresar Contraseña" name="contraseña">																										
+												</div>
+												<!--//////////////////////////////////////////////////////////////////////////////////////////////-->
 												<br>
 												<br>
 												<br>
@@ -317,11 +316,66 @@
 		});
 		
 	</script>
+	
+	<script>	
 		
-	<script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//----UBIGEO----//
+
+		$.get("/ubigeo/listaDepartamento",function(datos){
+			$.each(datos,function(index,item){
+				                           //solo se pone item ya que es un arrayList y no un objeto
+				$("#idDepartamento").append("<option value='"+item+"'>"+item+"</option>");
+			});
+		});
+		                                          //function() -->funcion anonima  
+		$(document).on("change","#idDepartamento",function(){
+		var dep;
+		dep=$(this).val();
+		
+		$("#idProvincia").empty();
+		$("#idProvincia").append("<option value=' '>[Seleccione Provincia]</option>");
+		$("#idDistrito").empty();
+		$("#idDistrito").append("<option value=' '>[Seleccione Distrito]</option>");
+		$.get("/ubigeo/listaProvincia?departamento="+dep,function(datos){
+			$.each(datos,function(index,item){
+				$("#idProvincia").append("<option value='"+item+"'>"+item+"</option>");
+			})
+			})
+		})
+		
+		$(document).on("change","#idProvincia",function(){
+		var pro;
+		pro=$(this).val();
+		
+		$("#idDistrito").empty();
+		$("#idDistrito").append("<option value=' '>[Seleccione Distrito]</option>");
+		$.get("/ubigeo/listaDistrito?provincia="+pro,function(datos){
+			$.each(datos,function(index,item){
+				$("#idDistrito").append("<option value='"+item.codigo+"'>"+item.distrito+"</option>");
+			})
+			})
+		})
+		//----FIN UBIGEO----//
+		
+		
+		/*
 		$("#btn-limpiar").on("click",function(){ 
      	$("#idVender").reset(); 
-		});
+		});*/
 	</script>
 	
 	<script>
@@ -336,7 +390,6 @@
 		$('#usr1').on('changeDate show', function(e) {
 		    $('#idRegistra').bootstrapValidator('revalidateField', $('#usr1'));
 		});
-
 
 	</script>
 	

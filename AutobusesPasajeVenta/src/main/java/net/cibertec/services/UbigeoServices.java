@@ -13,8 +13,15 @@ public class UbigeoServices {
 	@Autowired
 	private UbigeoRepository repo;
 	
-	private List<Ubigeo> listarUbigeo(){
-		return repo.findAll();
+	public List<String> listarDepartamentos(){
+		return repo.listaDepartamento();
 	}
 
+	public List<String> listarProvincias(String departamento){
+		return repo.listaProvincia(departamento);
+	}
+	
+	public List<Ubigeo> listarDistritos(String provincia){
+		return repo.listaDistrito(provincia);
+	}
 }

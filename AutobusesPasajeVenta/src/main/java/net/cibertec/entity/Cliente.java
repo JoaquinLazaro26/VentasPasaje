@@ -22,7 +22,7 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cod_cli")
-	private Integer codigocli;
+	private Integer codigo;
 	
 	@Column (name="nom_cli")
 	private String nombre;
@@ -41,8 +41,7 @@ public class Cliente {
 	
 	@Column (name="cel_cli")
 	private Integer celular;
-	
-	
+		
 	@OneToMany(mappedBy="cliente")
 	@JsonIgnore
 	private List<Pasajes> listaCliente;
@@ -52,17 +51,17 @@ public class Cliente {
 	@JoinColumn(name="cod_ubi")
 	private Ubigeo ubigeoCliente;// ASOCIACIÓN
 	
-	
-	public Integer getCodigocli() {
-		return codigocli;
+
+	public Integer getCodigo() {
+		return codigo;
 	}
-	
-	
-	public void setCodigocli(Integer codigocli) {
-		this.codigocli = codigocli;
+
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
-	
-	
+
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -121,8 +120,6 @@ public class Cliente {
 	public void setCelular(Integer celular) {
 		this.celular = celular;
 	}
-	
-	
 	
 	public List<Pasajes> getListaCliente() {
 		return listaCliente;

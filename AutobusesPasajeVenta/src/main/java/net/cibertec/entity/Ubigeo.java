@@ -18,7 +18,7 @@ public class Ubigeo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cod_ubi")
-	private Integer codigoubi;
+	private String codigo;
 	
 	@Column(name="departamento")
 	private String departamento;
@@ -39,17 +39,16 @@ public class Ubigeo {
 	@JsonIgnore
 	private List<Usuario> listaUbigeosUsuario;
 	
-	
-	public Integer getCodigoubi() {
-		return codigoubi;
+	public String getCodigo() {
+		return codigo;
 	}
-	
-	
-	public void setCodigoubi(Integer codigoubi) {
-		this.codigoubi = codigoubi;
+
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
-	
-	
+
+
 	public String getDepartamento() {
 		return departamento;
 	}

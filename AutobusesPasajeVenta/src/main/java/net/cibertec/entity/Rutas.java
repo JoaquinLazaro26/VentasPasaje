@@ -18,48 +18,48 @@ public class Rutas {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_ruta")
-	private Integer codruta;
+	private Integer codigo;
 	
 	@Column(name="ruta_Inicio")
-	private String rutainicio;
+	private String rutaInicio;
 	
 	@Column(name="ruta_Final")
-	private String rutafinal;
+	private String rutaFinal;
 	
 	
 	@OneToMany(mappedBy="rutas")
 	@JsonIgnore
 	private List<Buses> listaBuses;
-	
-	
-	public Integer getCodruta() {
-		return codruta;
+
+	public Integer getCodigo() {
+		return codigo;
 	}
-	
-	
-	public void setCodruta(Integer codruta) {
-		this.codruta = codruta;
+
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
-	
-	
-	public String getRutainicio() {
-		return rutainicio;
+
+
+	public String getRutaInicio() {
+		return rutaInicio;
 	}
-	
-	
-	public void setRutainicio(String rutainicio) {
-		this.rutainicio = rutainicio;
+
+
+	public void setRutaInicio(String rutaInicio) {
+		this.rutaInicio = rutaInicio;
 	}
-	
-	
-	public String getRutafinal() {
-		return rutafinal;
+
+
+	public String getRutaFinal() {
+		return rutaFinal;
 	}
-	
-	
-	public void setRutafinal(String rutafinal) {
-		this.rutafinal = rutafinal;
+
+
+	public void setRutaFinal(String rutaFinal) {
+		this.rutaFinal = rutaFinal;
 	}
+
 
 	public List<Buses> getListaBuses() {
 		return listaBuses;

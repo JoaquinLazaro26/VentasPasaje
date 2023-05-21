@@ -21,31 +21,31 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cod_usu")
-	private Integer codigocli;
+	private Integer codigo;
 
 	@Column (name="log_usu")
-	private String logusu;
+	private String login;
 
 	@Column (name="pas_usu")
-	private String passusu;
+	private String password;
 
 	@Column(name="nom_usus")
-	private String nombreusu;
+	private String nombre;
 	
 	@Column(name="ape_usu")
-	private String apellidousu;
+	private String apellido;
 	
 	@Column(name="cel_usu")
-	private String celularusu;
+	private String celular;
 
 	@Column(name="dni_usu")
-	private String dniusu;
+	private String dni;
 
-	@Column(name="fecNaci")
+	@Column(name="fec_naci")
 	private LocalDate fecha;
 
 	@Column (name="correo")
-	private Integer correo;
+	private String correo;
 	
 	@Column (name="sex_usu")
 	private String sexo;
@@ -59,74 +59,93 @@ public class Usuario {
 	@JoinColumn(name="cod_car")
 	private Cargo cargo;// ASOCIACIÓN
 
-
-	public Integer getCodigocli() {
-		return codigocli;
+	public Integer getCodigo() {
+		return codigo;
 	}
 
 
-	public void setCodigocli(Integer codigocli) {
-		this.codigocli = codigocli;
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 
 
-	public String getLogusu() {
-		return logusu;
+	public String getLogin() {
+		return login;
 	}
 
 
-	public void setLogusu(String logusu) {
-		this.logusu = logusu;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 
-	public String getPassusu() {
-		return passusu;
+	public String getPassword() {
+		return password;
 	}
 
 
-	public void setPassusu(String passusu) {
-		this.passusu = passusu;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 
-	public String getNombreusu() {
-		return nombreusu;
+	public String getNombre() {
+		return nombre;
 	}
 
 
-	public void setNombreusu(String nombreusu) {
-		this.nombreusu = nombreusu;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 
-	public String getApellidousu() {
-		return apellidousu;
+	public String getApellido() {
+		return apellido;
 	}
 
 
-	public void setApellidousu(String apellidousu) {
-		this.apellidousu = apellidousu;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
 
-	public String getCelularusu() {
-		return celularusu;
+	public String getCelular() {
+		return celular;
 	}
 
 
-	public void setCelularusu(String celularusu) {
-		this.celularusu = celularusu;
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
 
 
-	public String getDniusu() {
-		return dniusu;
+	public String getDni() {
+		return dni;
 	}
 
 
-	public void setDniusu(String dniusu) {
-		this.dniusu = dniusu;
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+
+	public Ubigeo getUbigeoUsuario() {
+		return ubigeoUsuario;
+	}
+
+
+	public void setUbigeoUsuario(Ubigeo ubigeoUsuario) {
+		this.ubigeoUsuario = ubigeoUsuario;
+	}
+
+
+	public Cargo getCargo() {
+		return cargo;
+	}
+
+
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
 	}
 
 
@@ -139,13 +158,12 @@ public class Usuario {
 		this.fecha = fecha;
 	}
 
-
-	public Integer getCorreo() {
+	public String getCorreo() {
 		return correo;
 	}
 
 
-	public void setCorreo(Integer correo) {
+	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
 

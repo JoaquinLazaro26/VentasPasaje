@@ -13,8 +13,23 @@ public class UsuarioServices {
 	@Autowired
 	private UsuarioRepository repo;
 	
-	private List<Usuario> listarUsuario(){
+	public void registarUsuario(Usuario usuario) {
+		 repo.save(usuario);
+	}
+	
+	public void actualizarUsuario(Usuario usuario) {
+		repo.save(usuario);
+	}
+	
+	public void eliminarUsuario(Integer cod) {
+		repo.deleteById(cod);
+	}
+	
+	public List<Usuario> listarUsuario(){
 		return repo.findAll();
 	}
 
+	public Usuario buscarUsuario(Integer cod) {
+		return repo.findById(cod).orElse(null);
+	}
 }

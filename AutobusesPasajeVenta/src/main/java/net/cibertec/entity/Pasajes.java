@@ -15,13 +15,13 @@ public class Pasajes {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name="cod_pas")
-private Integer codigopas;
+private Integer codigo;
 
 @Column(name="tip_via")
-private String tipovia;
+private String tipoVia;
 
 @Column (name="num_asi")
-private Integer numeroasi;
+private int numeroAsi;
 
 @Column (name="destino")
 private String destino;
@@ -36,28 +36,28 @@ private String destino;
 	@JoinColumn(name="cod_bus")
 	private Buses buses;// ASOCIACIÓN
 
-	public Integer getCodigopas() {
-		return codigopas;
+	public Integer getCodigo() {
+		return codigo;
 	}
 
-	public void setCodigopas(Integer codigopas) {
-		this.codigopas = codigopas;
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 
-	public String getTipovia() {
-		return tipovia;
+	public String getTipoVia() {
+		return tipoVia;
 	}
 
-	public void setTipovia(String tipovia) {
-		this.tipovia = tipovia;
+	public void setTipoVia(String tipoVia) {
+		this.tipoVia = tipoVia;
 	}
 
-	public Integer getNumeroasi() {
-		return numeroasi;
+	public int getNumeroAsi() {
+		return numeroAsi;
 	}
 
-	public void setNumeroasi(Integer numeroasi) {
-		this.numeroasi = numeroasi;
+	public void setNumeroAsi(int numeroAsi) {
+		this.numeroAsi = numeroAsi;
 	}
 
 	public String getDestino() {
@@ -67,7 +67,6 @@ private String destino;
 	public void setDestino(String destino) {
 		this.destino = destino;
 	}
-
 
 	public Cliente getCliente() {
 		return cliente;

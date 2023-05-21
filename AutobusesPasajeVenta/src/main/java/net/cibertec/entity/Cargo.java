@@ -21,7 +21,7 @@ public class Cargo {
 	private Integer codigo;
 	
 	@Column(name="nom_car")
-	private String nombrecar;
+	private String nombre;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="cargo")
@@ -41,17 +41,16 @@ public class Cargo {
 		this.codigo = codigo;
 	}
 	
-	
-	public String getNombrecar() {
-		return nombrecar;
+	public String getNombre() {
+		return nombre;
 	}
-	
-	
-	public void setNombrecar(String nombrecar) {
-		this.nombrecar = nombrecar;
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
-	
-	
+
+
 	public List<Usuario> getListaCargos() {
 		return listaCargos;
 	}
