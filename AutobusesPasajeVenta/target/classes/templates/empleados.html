@@ -86,7 +86,9 @@
 	/*.toast-succes{
 		width: 120px;
 	}*/
-</style> 
+</style>   
+	<script src="../templates/JavaScript/ubigeo.js"></script>
+
 </head>
 <body>
 	<!-- Head-->
@@ -127,14 +129,14 @@
 					            </tr>
 							  </thead>
 							  <tbody>
-								<tr >
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
+								<tr th:each="row:${usuarios}">
+							      <td th:text="${row.codigo}"></td>
+							      <td th:text="${row.cargo.nombre}"></td>
+							      <td th:text="${row.nombre}"></td>
+							      <td th:text="${row.apellido}"></td>
+							      <td th:text="${row.dni}"></td>
+							      <td th:text="${row.fecha}"></td>
+							      <td th:text="${row.celular}"></td>
 							      <td><a class="btn btn-info btn-editar" data-toggle="modal" data-target="#modalEmpleado"><i class="far fa-edit"></i></a></td>
 							      <td><a class="btn btn-danger btn-eliminar"><i class="far fa-trash-alt"></i></a></td>
 							    </tr>  
@@ -272,8 +274,8 @@
 												<br>
 												<br>
 												<div class="col-md-12 text-center mt-4"> 										
-											<button type="submit" id="Guardar" class="btn btn-primary"><i class="fas fa-save"></i> Grabar</button>
-											<button type="button" id="btn-limpiar" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-undo-alt"></i> Cancelar</button>
+											<button type="submit" id="idGrabar" class="btn btn-primary"><i class="fas fa-save"></i> Grabar</button>
+											<button type="button" id="idCancelar" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-undo-alt"></i> Cancelar</button>
 										</div> 	
 												
 												
@@ -289,6 +291,10 @@
 						<!--Fin del Modal de Empleado-->
 						
 						
+	<!-- Crear un form q almacene el codigo a eliminar-->	
+	<form action="/usuario/eliminar" method="post" id="form-eliminar"> 
+		<input type="hidden" name="codigoEliminar" id="codigo-eliminar"/>
+	</form>
 			
 		
 	
@@ -318,23 +324,63 @@
 	</script>
 	
 	<script>	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//----UBIGEO----//
+		//GLOBALES
+		let provincia="";
+		let distrito=-1;
 
+		//----EDITAR----//
+		$(document).on("click",".btn-editar",function(){
+			let cod;
+			cod=$(this).parents("tr").find("td")[0].innerHTML;
+			$.get("/usuario/buscar?codigo="+cod,function(datos){
+				$("#idCodigo").val(datos.codigo);
+				$("#idNombre").val(datos.nombre);
+				$("#idApellido").val(datos.apellido);
+				$("#idCargo").val(datos.cargo.codigo);
+				$("#idCelular").val(datos.celular);
+				$("#idDni").val(datos.dni);
+				$("#usr1").val(datos.fecha);
+				$("#idCorreo").val(datos.correo);
+				$("#idSexo").val(datos.sexo);
+				$("#idUsuario").val(datos.password);
+				$("#idContraseña").val(datos.codigo);
+				$("#idDepartamento").val(datos.ubigeoUsuario.departamento);
+
+				//console.log(datos);
+				$("#idDepartamento").trigger("change");				
+				provincia=datos.ubigeoUsuario.provincia;
+				distrito=datos.ubigeoUsuario.codigo;
+
+			})
+		})
+		
+		//----CERRAR----//
+		$(document).on("click","#idCancelar",function(){
+			$("#idRegistra").trigger("reset");
+			$("#idCodigo").val(0);
+			//$("#idDepartamento").value();
+			$("#idRegistra").data("bootstrapValidator").resetForm(true);
+		})
+		
+	
+		//----ELIMINAR----//
+		$(document).on("click",".btn-eliminar",function(){
+			let cod;
+			cod=$(this).parents("tr").find("td")[0].innerHTML;
+			$("#codigo-eliminar").val(cod);
+			
+			alertify.confirm("SISTEMA","Seguro de eliminar!",
+			  function(){//si
+			  	$("#form-eliminar").submit();
+			  	
+			  },
+			  function(){//no
+				alertify.error('Cancelado!')
+			  }).
+			  set('labels', {ok:'Si', cancel:'No'});
+		})
+
+		//----UBIGEO----//
 		$.get("/ubigeo/listaDepartamento",function(datos){
 			$.each(datos,function(index,item){
 				                           //solo se pone item ya que es un arrayList y no un objeto
@@ -354,6 +400,9 @@
 			$.each(datos,function(index,item){
 				$("#idProvincia").append("<option value='"+item+"'>"+item+"</option>");
 			})
+			$("#idProvincia").val(provincia);
+			$("#idProvincia").trigger("change");
+
 			})
 		})
 		
@@ -366,7 +415,8 @@
 		$.get("/ubigeo/listaDistrito?provincia="+pro,function(datos){
 			$.each(datos,function(index,item){
 				$("#idDistrito").append("<option value='"+item.codigo+"'>"+item.distrito+"</option>");
-			})
+			})		
+			$("#idDistrito").val(distrito);	
 			})
 		})
 		//----FIN UBIGEO----//

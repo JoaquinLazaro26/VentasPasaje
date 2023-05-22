@@ -31,6 +31,7 @@ public class UsuarioController {
 	@RequestMapping("/lista")
 	private String lista(Model model) {
 		model.addAttribute("cargo",cargoServicio.listarCargo());
+		model.addAttribute("usuarios", usuarioServicio.listarUsuario());
 		return "empleados";
 	}
 	
@@ -85,5 +86,18 @@ public class UsuarioController {
 		}
 		return "redirect:/usuario/lista";
 	}
-								
+		
+	@RequestMapping("buscar")
+	@ResponseBody
+	private Usuario buscarUsuario(@RequestParam("codigo")  Integer cod) {
+		return usuarioServicio.buscarUsuario(cod);
+	}
+	
+	@RequestMapping("eliminar")
+	private String eliminar(@RequestParam("codigoEliminar") Integer codEli,
+										  RedirectAttributes redirect) {
+		usuarioServicio.eliminarUsuario(codEli);
+		redirect.addAttribute("MENSAJE","Usuario Eliminado");
+		return "redirect:/usuario/lista";
+	}
 }
