@@ -166,7 +166,7 @@
 												        
 													    <select class="form-control" id="idMarca" name="marca">
 													      <option value=" ">[Seleccione Marca]</option>
-													      <option th:each="data:${}"   
+													      <option th:each="data:${marca}"   
 													      		th:utext="${data.nombre}"
 													      		th:value="${data.codigo}"
 													      />
@@ -202,7 +202,7 @@
 												        
 													    <select class="form-control" id="idDepartamento" name="departamento">
 													      <option value=" ">[Seleccione Ruta]</option>
-													      <option th:each="data:${}"   
+													      <option th:each="data:${buses}"   
 													      		th:utext="${data.nombre}"
 													      		th:value="${data.codigo}"
 													      />
@@ -214,9 +214,7 @@
 												        
 													    <select class="form-control" id="idProvincia" name="provincia">
 													      <option value=" ">[Seleccione Ruta]</option>
-													      <option th:each="data:${}"   
-													      		th:utext="${data.nombre}"
-													      		th:value="${data.codigo}"
+													      <option
 													      />
 													    </select>
 													   
@@ -226,9 +224,7 @@
 												        
 													    <select class="form-control" id="idDistrito" name="distrito">
 													      <option value=" ">[Seleccione Horario]</option>
-													      <option th:each="data:${}"   
-													      		th:utext="${data.nombre}"
-													      		th:value="${data.codigo}"
+													      <option 
 													      />
 													    </select>
 													   
