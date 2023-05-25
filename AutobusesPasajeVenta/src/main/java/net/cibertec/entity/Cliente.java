@@ -36,7 +36,7 @@ public class Cliente {
 	@Column(name="dni_cli")
 	private Integer dni;
 	
-	@Column(name="fecNaci")
+	@Column(name="fec_naci")
 	private LocalDate fecha;
 	
 	@Column (name="cel_cli")

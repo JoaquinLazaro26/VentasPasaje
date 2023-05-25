@@ -41,7 +41,7 @@ public class Usuario {
 	@Column(name="dni_usu")
 	private String dni;
 
-	@Column(name="fec_naci")
+	@Column(name="fech_naci")
 	private LocalDate fecha;
 
 	@Column (name="correo")

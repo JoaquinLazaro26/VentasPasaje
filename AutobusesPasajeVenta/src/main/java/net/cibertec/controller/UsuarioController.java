@@ -21,7 +21,6 @@ import net.cibertec.services.UsuarioServices;
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
-<<<<<<< HEAD
 	
 	
 	
@@ -43,14 +42,7 @@ public class UsuarioController {
 	private String login() {
 		return "login";
 	}
-=======
 
-	@Autowired
-	private UsuarioServices usuarioServicio;
-	
-	@Autowired
-	private CargoServices cargoServicio;
->>>>>>> branch 'main' of https://github.com/JoaquinLazaro26/VentasPasaje.git
 	
 	@RequestMapping("/lista")
 	private String lista(Model model) {
