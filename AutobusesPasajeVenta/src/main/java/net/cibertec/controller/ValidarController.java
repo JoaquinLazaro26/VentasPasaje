@@ -9,9 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.clinica.entity.Enlace;
-import com.clinica.entity.Usuario;
-import com.clinica.service.UsuarioService;
+import net.cibertec.entity.Enlace;
+import net.cibertec.entity.Usuario;
+import net.cibertec.service.UsuarioService;
 @SessionAttributes({"datosUsuario","enlaces"})
 @Controller
 @RequestMapping("/validar")
