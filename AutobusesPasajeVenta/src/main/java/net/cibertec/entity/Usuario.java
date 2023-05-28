@@ -192,8 +192,8 @@ public class Usuario {
 	private String apellido;
 	
 	@ManyToOne
-	@JoinColumn(name="idrol")
-	private Rol rol;
+	@JoinColumn(name="cod_car")
+	private Cargo cargo;
 
 	
 	
