@@ -229,12 +229,12 @@ public class Usuario {
 		this.clave = clave;
 	}
 
-	public Rol getRol() {
-		return rol;
+	public Cargo getCargo() {
+		return cargo;
 	}
 
-	public void setRol(Rol rol) {
-		this.rol = rol;
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
 	}
 
 	
