@@ -1,4 +1,4 @@
-package com.clinica.controller;
+package net.cibertec.controller;
 
 import java.util.List;
 
