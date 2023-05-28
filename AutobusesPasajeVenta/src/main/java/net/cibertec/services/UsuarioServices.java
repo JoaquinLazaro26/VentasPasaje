@@ -33,5 +33,14 @@ public class UsuarioServices {
 	public Usuario buscarUsuario(Integer cod) {
 		return repo.findById(cod).orElse(null);
 	}
+	@Autowired
+	private UsuarioRepository repo;
+	
+	public Usuario loginUsuario(String vLogin){
+		return repo.iniciarSesion(vLogin);
+	}
+	public List<Enlace> enlacesDelUsuario(int rol){
+		return repo.traerEnlacesDElUsuario(rol);
+	}
 }
 
