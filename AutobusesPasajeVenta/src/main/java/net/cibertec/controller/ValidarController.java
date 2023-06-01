@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import net.cibertec.entity.Enlace;
 import net.cibertec.entity.Usuario;
 import net.cibertec.service.UsuarioService;
+import net.cibertec.services.UsuarioServices;
 @SessionAttributes({"datosUsuario","enlaces"})
 @Controller
 @RequestMapping("/validar")
 public class ValidarController {
 	@Autowired
-	private UsuarioService servicio;
+	private UsuarioServices servicio;
 	
 	@RequestMapping("/usuario")
 	public String index(){
