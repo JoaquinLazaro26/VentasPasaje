@@ -1,4 +1,3 @@
-
 package net.cibertec.services;
 
 import java.util.List;
@@ -6,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import net.cibertec.entity.Menu;
 import net.cibertec.entity.Usuario;
 import net.cibertec.repository.UsuarioRepository;
 
@@ -33,14 +33,15 @@ public class UsuarioServices {
 	public Usuario buscarUsuario(Integer cod) {
 		return repo.findById(cod).orElse(null);
 	}
-	@Autowired
-	private UsuarioRepository repo;
 	
-	public Usuario loginUsuario(String vLogin){
+	
+	//----LOGIN----
+	public Usuario loginUsuario(String vLogin) {
 		return repo.iniciarSesion(vLogin);
 	}
-	public List<Enlace> enlacesDelUsuario(int rol){
-		return repo.traerEnlacesDElUsuario(rol);
+	
+	public List<Menu> MenuUsuario(int codigoCargo){
+		return repo.traerMenuUsuario(codigoCargo);
 	}
-}
 
+}

@@ -7,4 +7,3 @@ import net.cibertec.entity.CargoMenu;
 public interface CargoMenuRepository extends JpaRepository<CargoMenu, Integer> {
 
 }
-

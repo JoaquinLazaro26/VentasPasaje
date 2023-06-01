@@ -1,4 +1,3 @@
-
 package net.cibertec.services;
 
 import java.util.List;
@@ -14,8 +13,8 @@ public class MarcaServices {
 	@Autowired
 	private MarcaRepository repo;
 	
-	private List<Marca> listarMarca(){
+	public List<Marca> listaMarcas(){
 		return repo.findAll();
 	}
-
+ 
 }

@@ -34,13 +34,13 @@ public class Cliente {
 	private String sexo;
 	
 	@Column(name="dni_cli")
-	private Integer dni;
+	private String dni;
 	
-	@Column(name="fec_naci")
+	@Column(name="fecNaci")
 	private LocalDate fecha;
 	
 	@Column (name="cel_cli")
-	private Integer celular;
+	private String celular;
 		
 	@OneToMany(mappedBy="cliente")
 	@JsonIgnore
@@ -50,7 +50,7 @@ public class Cliente {
 	@ManyToOne
 	@JoinColumn(name="cod_ubi")
 	private Ubigeo ubigeoCliente;// ASOCIACIÓN
-	
+
 
 	public Integer getCodigo() {
 		return codigo;
@@ -65,67 +65,68 @@ public class Cliente {
 	public String getNombre() {
 		return nombre;
 	}
-	
-	
+
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
+
+
 	public String getApellido() {
 		return apellido;
 	}
-	
-	
+
+
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	
-	
+
+
 	public String getSexo() {
 		return sexo;
 	}
-	
-	
+
+
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	
-	
-	public Integer getDni() {
+
+
+	public String getDni() {
 		return dni;
 	}
-	
-	
-	public void setDni(Integer dni) {
+
+
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
-	
-	
+
+
 	public LocalDate getFecha() {
 		return fecha;
 	}
-	
-	
+
+
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
-	
-	
-	public Integer getCelular() {
+
+
+	public String getCelular() {
 		return celular;
 	}
-	
-	
-	public void setCelular(Integer celular) {
+
+
+	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-	
+
+
 	public List<Pasajes> getListaCliente() {
 		return listaCliente;
 	}
-	
-	
+
+
 	public void setListaCliente(List<Pasajes> listaCliente) {
 		this.listaCliente = listaCliente;
 	}
@@ -139,5 +140,5 @@ public class Cliente {
 	public void setUbigeoCliente(Ubigeo ubigeoCliente) {
 		this.ubigeoCliente = ubigeoCliente;
 	}
-
+	
 }

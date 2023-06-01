@@ -1,4 +1,3 @@
-
 package net.cibertec.services;
 
 import java.util.List;
@@ -20,4 +19,3 @@ public class CargoServices {
 	
 
 }
-

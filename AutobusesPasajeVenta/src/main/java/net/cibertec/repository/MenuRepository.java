@@ -1,4 +1,3 @@
-
 package net.cibertec.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;

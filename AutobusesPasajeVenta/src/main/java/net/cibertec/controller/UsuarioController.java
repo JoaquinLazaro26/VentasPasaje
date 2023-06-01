@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,28 +22,15 @@ import net.cibertec.services.UsuarioServices;
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
-	
-	
-	
-	
-	
+
 	@Autowired
 	private UsuarioServices usuarioServicio;
 	
 	@Autowired
 	private CargoServices cargoServicio;
 	
-	/* Retornar página principal */
-	@RequestMapping("/principal")
-	private String retornarprincipal() {
-		return "principal";
-	}
-	/* Retornar login */
-	@RequestMapping("/login")
-	private String login() {
-		return "login";
-	}
-
+	@Autowired
+	private BCryptPasswordEncoder encoder;
 	
 	@RequestMapping("/lista")
 	private String lista(Model model) {
@@ -77,7 +65,7 @@ public class UsuarioController {
 			u.setCorreo(correo);
 			u.setSexo(sexo);
 			u.setLogin(usu);
-			u.setPassword(con);
+			u.setPassword(encoder.encode(con));
 			
 			Cargo c = new Cargo();
 			Ubigeo ubi = new Ubigeo();
@@ -92,8 +80,9 @@ public class UsuarioController {
 				usuarioServicio.registarUsuario(u);
 				redirect.addFlashAttribute("MENSAJE","Usuario Registrado");
 			}else {
+				u.setCodigo(codUsuario);
 				usuarioServicio.actualizarUsuario(u);
-				redirect.addFlashAttribute("MENSAJE","Usuario Actualizando");
+				redirect.addFlashAttribute("MENSAJE","Usuario Actualizado");
 			}
 			
 		} catch (Exception e) {

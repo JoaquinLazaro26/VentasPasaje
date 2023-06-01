@@ -18,21 +18,21 @@ public class Horarios {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cod_hor")
-	private Integer codigohor;
+	private Integer codigo;
 	
 	@Column (name="horas")
 	private String horas;
 	
 	@OneToMany(mappedBy="horarios")
 	@JsonIgnore
-	private List<Buses> listaHorarios;
+	private List<Buses> listaBusesHorario;
 	
-	public Integer getCodigohor() {
-		return codigohor;
+	public Integer getCodigo() {
+		return codigo;
 	}
 	
-	public void setCodigohor(Integer codigohor) {
-		this.codigohor = codigohor;
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 	
 	public String getHoras() {
@@ -43,13 +43,12 @@ public class Horarios {
 		this.horas = horas;
 	}
 	
-	public List<Buses> getListaHorarios() {
-		return listaHorarios;
-	}
-	
-	public void setListaHorarios(List<Buses> listaHorarios) {
-		this.listaHorarios = listaHorarios;
+	public List<Buses> getListaBusesHorario() {
+		return listaBusesHorario;
 	}
 
+	public void setListaBusesHorario(List<Buses> listaBusesHorario) {
+		this.listaBusesHorario = listaBusesHorario;
+	}
 
 }

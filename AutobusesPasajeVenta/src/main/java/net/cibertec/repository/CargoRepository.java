@@ -7,4 +7,3 @@ import net.cibertec.entity.Cargo;
 public interface CargoRepository extends JpaRepository<Cargo, Integer>  {
 
 }
-

@@ -19,14 +19,14 @@ public class Buses {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cod_bus")
-	private Integer codigobus;
+	private Integer codigo;
 	
 	@Column(name="nro_placa")
 	private String nroplaca;
 	@Column(name="año_fab")
-	private Integer añofab;
+	private int aniofab;
 	@Column(name="nro_asi")
-	private Integer nroasi;
+	private int nroasi;
 	@Column(name="est_bus")
 	private String estadobus;
 	@Column(name="col_bus")
@@ -46,15 +46,15 @@ public class Buses {
 	private Horarios horarios;// ASOCIACIÓN
 	
 	@ManyToOne
-	@JoinColumn(name="id_ruta")
+	@JoinColumn(name="cod_ruta")
 	private Rutas rutas;// ASOCIACIÓN
 
-	public Integer getCodigobus() {
-		return codigobus;
+	public Integer getCodigo() {
+		return codigo;
 	}
 
-	public void setCodigobus(Integer codigobus) {
-		this.codigobus = codigobus;
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getNroplaca() {
@@ -65,19 +65,19 @@ public class Buses {
 		this.nroplaca = nroplaca;
 	}
 
-	public Integer getAñofab() {
-		return añofab;
+	public int getAniofab() {
+		return aniofab;
 	}
 
-	public void setAñofab(Integer añofab) {
-		this.añofab = añofab;
+	public void setAniofab(int aniofab) {
+		this.aniofab = aniofab;
 	}
 
-	public Integer getNroasi() {
+	public int getNroasi() {
 		return nroasi;
 	}
 
-	public void setNroasi(Integer nroasi) {
+	public void setNroasi(int nroasi) {
 		this.nroasi = nroasi;
 	}
 
@@ -96,8 +96,6 @@ public class Buses {
 	public void setColbus(String colbus) {
 		this.colbus = colbus;
 	}
-
-	
 
 	public List<Pasajes> getListaPasajes() {
 		return listaPasajes;
@@ -130,5 +128,6 @@ public class Buses {
 	public void setRutas(Rutas rutas) {
 		this.rutas = rutas;
 	}
-	
+
+
 }

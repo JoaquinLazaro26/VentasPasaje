@@ -12,29 +12,27 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="tb_pasajes")
 public class Pasajes {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name="cod_pas")
-private Integer codigo;
-
-@Column(name="tip_via")
-private String tipoVia;
-
-@Column (name="num_asi")
-private int numeroAsi;
-
-@Column (name="destino")
-private String destino;
-
-//relacion MUCHOS A UNO
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="cod_pas")
+	private Integer codigo;
+	
+	@Column(name="monto")
+	private Double monto;
+	
+	//relacion MUCHOS A UNO
 	@ManyToOne
-	@JoinColumn(name="cod_cli")
+	@JoinColumn(name="cod_cliente")
 	private Cliente cliente;// ASOCIACIÓN
 	
-//
+	//
 	@ManyToOne
 	@JoinColumn(name="cod_bus")
 	private Buses buses;// ASOCIACIÓN
+
+	@ManyToOne
+	@JoinColumn(name="cod_asiento")
+	private Asiento asiento ;// ASOCIACIÓN
 
 	public Integer getCodigo() {
 		return codigo;
@@ -44,28 +42,12 @@ private String destino;
 		this.codigo = codigo;
 	}
 
-	public String getTipoVia() {
-		return tipoVia;
+	public Double getMonto() {
+		return monto;
 	}
 
-	public void setTipoVia(String tipoVia) {
-		this.tipoVia = tipoVia;
-	}
-
-	public int getNumeroAsi() {
-		return numeroAsi;
-	}
-
-	public void setNumeroAsi(int numeroAsi) {
-		this.numeroAsi = numeroAsi;
-	}
-
-	public String getDestino() {
-		return destino;
-	}
-
-	public void setDestino(String destino) {
-		this.destino = destino;
+	public void setMonto(Double monto) {
+		this.monto = monto;
 	}
 
 	public Cliente getCliente() {
@@ -84,4 +66,12 @@ private String destino;
 		this.buses = buses;
 	}
 
+	public Asiento getAsiento() {
+		return asiento;
+	}
+
+	public void setAsiento(Asiento asiento) {
+		this.asiento = asiento;
+	}
+	
 }

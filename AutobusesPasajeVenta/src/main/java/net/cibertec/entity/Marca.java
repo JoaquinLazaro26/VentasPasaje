@@ -25,30 +25,30 @@ public class Marca {
 	
 	@OneToMany(mappedBy="marca")
 	@JsonIgnore
-	private List<Buses> listaMarca;
-	
+	private List<Buses> listaBusesMarca;
+
 	public Integer getCodigo() {
 		return codigo;
 	}
-	
+
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
-	
-	public String getNombremarca() {
+
+	public String getNombre() {
 		return nombre;
 	}
-	
-	public void setNombremarca(String nombre) {
+
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	public List<Buses> getListaMarca() {
-		return listaMarca;
-	}
-	
-	public void setListaMarca(List<Buses> listaMarca) {
-		this.listaMarca = listaMarca;
+
+	public List<Buses> getListaBusesMarca() {
+		return listaBusesMarca;
 	}
 
+	public void setListaBusesMarca(List<Buses> listaBusesMarca) {
+		this.listaBusesMarca = listaBusesMarca;
+	}
+	
 }

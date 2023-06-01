@@ -1,4 +1,3 @@
-
 package net.cibertec.services;
 
 import java.util.List;
@@ -14,8 +13,11 @@ public class RutasServices {
 	@Autowired
 	private RutasRepository repo;
 	
-	private List<Rutas> listarRutas(){
-		return repo.findAll();
+	public List<String> listarRutaInicial(){
+		return repo.listaRutaInicial();
 	}
 
+	public List<Rutas> listarRutaFinal(String inicio){
+		return repo.listaRutaFinal(inicio);
+	}
 }

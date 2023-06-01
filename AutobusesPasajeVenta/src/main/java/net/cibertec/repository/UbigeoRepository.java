@@ -18,4 +18,3 @@ public interface UbigeoRepository extends JpaRepository<Ubigeo, Integer>{
 	@Query("select u from Ubigeo u where u.provincia=?1")
 	public List<Ubigeo> listaDistrito(String provincia);
 }
-

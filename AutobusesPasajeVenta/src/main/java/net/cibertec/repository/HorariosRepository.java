@@ -7,4 +7,3 @@ import net.cibertec.entity.Horarios;
 public interface HorariosRepository extends JpaRepository<Horarios, Integer>{
 
 }
-

@@ -41,7 +41,7 @@ public class Usuario {
 	@Column(name="dni_usu")
 	private String dni;
 
-	@Column(name="fech_naci")
+	@Column(name="fec_naci")
 	private LocalDate fecha;
 
 	@Column (name="correo")
@@ -176,6 +176,8 @@ public class Usuario {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
+
+
 
 
 }
